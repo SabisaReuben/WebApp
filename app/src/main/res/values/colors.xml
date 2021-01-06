@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#6F42C1</color>
+    <color name="colorPrimaryDark">#A66F42C1</color>
+    <color name="greyVariant">#868e96</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccentLight">#FF80AB</color>
+
+    <color name="grey_40">#999999</color>
+
+
+    <!--Material color list from https://material.io/guidelines/style/color.html-->
+
+    <color name="blue_grey_600">#546E7A</color>
+
+    <color name="blue_600">#1E88E5</color>
+
+
+    <!--for random color generator -->
+
+</resources>

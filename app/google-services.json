@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "176049865741",
+    "firebase_url": "https://connext-de112.firebaseio.com",
+    "project_id": "connext-de112",
+    "storage_bucket": "connext-de112.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176049865741:android:b61bbd5b970bfe7db98144",
+        "android_client_info": {
+          "package_name": "co.ciao.bluclub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176049865741-tl8ekv61cn0f7vob6d298ge59j4c7t8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZhZRuFzxEM50ziAaE0ybmO8hy6oBzvbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176049865741-tl8ekv61cn0f7vob6d298ge59j4c7t8i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

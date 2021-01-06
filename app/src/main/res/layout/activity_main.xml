@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/BaseTheme.Dark"
+    android:fitsSystemWindows="true">
+    <!--the main layout-->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/lyt_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:liftOnScroll="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlwaysCollapsed|enterAlways|exitUntilCollapsed|snap">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="@style/BaseTheme.HorizontalProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:visibility="gone"
+                    android:progress="0"
+                    app:layout_collapseMode="pin" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+        <!--container used because swipeRefreshLayout cannot be used with scrolling behavior-->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+          >
+          <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+              android:id="@+id/swipeToRefresh"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+              <ScrollView
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+                  <WebView
+                      android:id="@+id/main_webView"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@drawable/bg_bluclub"
+                      app:layout_anchor="@+id/constraintLayout"
+                      app:layout_anchorGravity="center" />
+              </ScrollView>
+          </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+      </LinearLayout>
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="20dp"
+            android:scaleType="centerCrop"
+            android:tint="@android:color/white"
+            app:backgroundTintMode="src_in"
+            app:backgroundTint="@color/colorAccent"
+            app:fabSize="auto"
+            app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+            app:srcCompat="@drawable/ic_setting" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!--splash screen layout-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lyt_launcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/spacing_medium"
+        android:visibility="visible">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo_bluclub"
+            app:layout_constraintBottom_toTopOf="@id/app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
+
+        <TextView
+            android:id="@+id/app_name"
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:padding="@dimen/spacing_large"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <co.ciao.bluclub.widget.ViewLoadingDotsFade
+            android:id="@+id/progress_launcher_indeterminate"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:background="@color/blue_600"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_name"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <ProgressBar
+            android:id="@+id/progress_launcher_horizontal"
+            style="@style/BaseTheme.HorizontalProgressBar"
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:background="@color/grey_40"
+            android:progress="50"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_name"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/greyVariant"
+            app:layout_constraintBottom_toTopOf="@id/footerText" />
+
+        <TextView
+            android:id="@+id/footerText"
+            style="@style/TextAppearance.MaterialComponents.Tooltip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_large"
+            android:text="@string/splash_footer_text"
+            android:textColor="@color/greyVariant"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--no internet connection layout-->
+    <LinearLayout
+        android:id="@+id/lyt_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:contentDescription="@string/no_internet_icon"
+            android:src="@drawable/img_no_internet_satellite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/whoops"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Display1"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/error_TextView"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:gravity="center"
+            android:text="@string/no_connection_label"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorPrimary" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_retry"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xlarge"
+            android:background="@drawable/btn_rounded_primary"
+            android:text="@string/RETRY"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

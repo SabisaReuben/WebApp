@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Security and Privacy">
+        <SwitchPreference
+            android:key="cache"
+            android:summary="Always erase browsing history"
+            android:title="Clear cache" />
+        <CheckBoxPreference
+            android:key="passwords"
+            android:summary="Save all password entered on input"
+            android:title="Save passwords" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="network"
+        android:title="Network and Connection">
+        <CheckBoxPreference
+            android:key="auto_refresh"
+            android:summary="Enable page auto refresh"
+            android:title="Auto refresh" />
+        <ListPreference
+            android:entries="@array/refresh_duration"
+            android:entryValues="@array/refresh_duration"
+            android:key="refresh_duration"
+            android:summary="Choose refresh duration" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="display"
+        android:title="Display">
+
+        <ListPreference
+            android:entries="@array/themes"
+            android:entryValues="@array/themes"
+            android:key="theme"
+            android:selectable="true"
+            android:summary="Select app theme" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Country"
+        android:key="country">
+        <ListPreference android:key="countryUrl"
+            android:entries="@array/country"
+            android:entryValues="@array/countryValue"
+            android:summary="change country"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Software and Updates">
+        <SwitchPreference
+            android:key="key"
+            android:summary="Allow app to sync local data with cloud"
+            android:title="Sync" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="about"
+        android:title="About">
+        <Preference
+            android:key="developer"
+            android:summary="View developer profile"
+            android:title="Developer" />
+        <Preference
+            android:key="profile"
+            android:summary="View Company profile"
+            android:title="Company" />
+    </PreferenceCategory>
+</PreferenceScreen>
